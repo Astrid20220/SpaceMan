@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 248086466118213612}
   - component: {fileID: 1941952968065112071}
   - component: {fileID: 647052340463601120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mediana
   m_TagString: Untagged
   m_Icon: {fileID: 0}

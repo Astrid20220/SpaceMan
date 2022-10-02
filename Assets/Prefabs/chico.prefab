@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8622710253181573969}
   - component: {fileID: 7714055327753201605}
   - component: {fileID: 276890375162592876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
