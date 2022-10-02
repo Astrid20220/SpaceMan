@@ -78,4 +78,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
     }
+
+    public void Die(){
+        this.animator.SetBoll(STATE_ALIVE, false);
+        GameManager.sharedInstance.GameOver();
+
+    }
 }
