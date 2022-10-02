@@ -61,6 +61,7 @@ public class NewBehaviourScript : MonoBehaviour
         if(Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f, groundMask)){
 
             //TODO: programar logica de contacto con el suelo
+            GameManager.sharedInstance.currentGameState = GameState.inGame;
             //animator.enabled = true;
             return true;
         }else{
