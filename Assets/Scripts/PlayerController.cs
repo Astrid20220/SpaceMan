@@ -29,6 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
             Salto();
 
         }
+        Debug.DrawRay(this.transform.position, Vector2.down*1.5f, Color.red);
     }
 
     void Salto(){
