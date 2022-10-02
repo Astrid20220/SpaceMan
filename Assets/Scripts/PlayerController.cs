@@ -9,6 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float runningSpeed = 2f;
     Rigidbody2D RigidBody;
     Animator animator;
+    Vector3 startPosition;
 
     private const string STATE_ALIVE = "EstaVivo";
     private const string STATE_ON_THE_GROUND ="EstaEnElSuelo";
@@ -28,7 +29,14 @@ public class NewBehaviourScript : MonoBehaviour
     {
         animator.SetBoll(STATE_ALIVE, true);
         animator.SetBoll(STATE_ON_THE_GROUND, true);
+
+        startPosition = this.transform.position;
         
+    }
+
+    public void StartGame(){
+        this.transform.position = startPosition;
+        this.rigidBody.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
