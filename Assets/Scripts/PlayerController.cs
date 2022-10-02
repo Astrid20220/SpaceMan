@@ -56,6 +56,11 @@ public class NewBehaviourScript : MonoBehaviour
 
 
     void Salto(){
+
+        if(GameManager.sharedInstance.currentGameState == GameState.inGame){
+            
+        }
+
         if(IsTouchingTheGround()){
 
         }
