@@ -54,11 +54,11 @@ public class NewBehaviourScript : MonoBehaviour
         if(Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f, groundMask)){
 
             //TODO: programar logica de contacto con el suelo
-            animator.enabled = true;
+            //animator.enabled = true;
             return true;
         }else{
             //TODO: programar logica de no contacto 
-            animator.enabled = false;
+            //animator.enabled = false;
             return false;
         }
 
