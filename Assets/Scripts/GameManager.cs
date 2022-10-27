@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Submit") && currentGameState != GameState.inGame){
+        if(Input.GetButtonDown("Submit") 
+        && currentGameState != GameState.inGame){
             StartGame();
         }
     }
@@ -59,12 +60,19 @@ public class GameManager : MonoBehaviour{
 
         }else if(newGameState == GameState.inGame){
             //TODO hay que preparar la escena para jugar 
+            LevelManager.sharedInstance.RemoveAllLevelBlocks();
+            LevelManager.sharedInstance.GenerateInitialBlocks();
             controller.StartGame();
+
         }else if(newGameState == GameState.gameOver){
             //TODO: preparar el juego para el Game Over
         }
 
         this.currentGameState = newGameState;
+    }
+
+    void ReloadLevel(){
+        
     }
 
 }
