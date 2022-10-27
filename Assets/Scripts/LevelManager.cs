@@ -59,11 +59,17 @@ public class LevelManager : MonoBehaviour
         currentLevelBlocks.Add(block);
     }
 
-    public void RemoveAllLevelBllocks(){
+    public void RemoveLevelBlock(){
+        LevelBlock oldBlock = currentLevelBlocks[0];
+        currentLevelBlocks.Remove(oldBlock);
+        Destroy(oldBlock.gameObject);
 
     }
 
-    public void RemoveLevelBllocks(){
+    public void RemoveAllLevelBlocks(){
+        while (currentLevelBlocks.Count>0){
+            RemoveLevelBlock();
+        }
 
     }
 
