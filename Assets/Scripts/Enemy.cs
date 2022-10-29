@@ -41,4 +41,14 @@ private void Awake(){
                                          rigidBody.velocity.y);
        }
     }
+    private void OnTriggerEnter 2D(Collider2D collision){
+        if(collision.tag == "Coin"){
+            return;
+        }
+        if(collision.tag == "Player"){
+            collision.GameObject.GetComponent<PlayerController>().
+                                 CollectHealth(-enemyDamage);
+        }
+        facingRigth =!facingRigth;
+    }
 }
