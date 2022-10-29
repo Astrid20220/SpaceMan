@@ -11,8 +11,14 @@ public class NewBehaviourScript : MonoBehaviour
     Animator animator;
     Vector3 startPosition;
 
-    private const string STATE_ALIVE = "EstaVivo";
-    private const string STATE_ON_THE_GROUND ="EstaEnElSuelo";
+    const string STATE_ALIVE = "EstaVivo";
+    const string STATE_ON_THE_GROUND ="EstaEnElSuelo";
+
+    private int healthPotions, manaPotions;
+
+    public const int INITIAL_HEALTH = 100, INITIAL_MANA = 15,
+    MAX_HEALTH = 200, MAX_MANA = 30,
+    MIN_HEALTH = 10, MIN_MANA =0;
 
 
     public LayerMask groundMask
@@ -35,6 +41,9 @@ public class NewBehaviourScript : MonoBehaviour
     public void StartGame(){
         animator.SetBoll(STATE_ALIVE, true);
         animator.SetBoll(STATE_ON_THE_GROUND, true);
+
+        healthPotions = INITIAL_HEALTH;
+        manaPoints = INITIAL_MANA;
 
         Invoke("RestartPosition", 0.2f);
 
@@ -102,5 +111,24 @@ public class NewBehaviourScript : MonoBehaviour
         this.animator.SetBoll(STATE_ALIVE, false);
         GameManager.sharedInstance.GameOver();
 
+    }
+
+    public void CollectHealth(int points){
+        this.healtPoints += points;
+        if(this.healthPotions >= MAX_HEALTH){
+            this.healthPotions = MAX_HEALTH;
+        }
+    }
+
+    public void CollectMana(int points){
+
+    }
+
+    public int GetHealth(){
+        return healtPoints;
+    }
+
+    public int GetMana(){
+        return manaPoints;
     }
 }
