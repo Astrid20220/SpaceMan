@@ -20,6 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
     MAX_HEALTH = 200, MAX_MANA = 30,
     MIN_HEALTH = 10, MIN_MANA =0;
 
+    public const int SUPERJUMP_COST = 5;
+    public const float SUPERJUMP_FORCE =1.5f;
 
     public LayerMask groundMask
 
@@ -63,10 +65,13 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Jump")){
-            Jump();
-        
+            Jump(false);
+          }
+          if(Input.GetButtonDown("Superjump")){
+            Jump(true);
+          }
         animator.SetBoll(STATE_ON_THE_GROUND, IsTouchingTheGround());
-        }
+      
         Debug.DrawRay(this.transform.position, Vector2.down*1.5f, Color.red);
     }
 
@@ -83,7 +88,13 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
 
-    void Salto(){
+    void Jump(bool Superjump){
+
+        float JumpForceFactor = jumpForce;
+        if(Superjump&&manaPoints -= SUPERJUMP_COST){
+            manaPoints-= SUPERJUMP_COST; 
+            JumpForceFactor *= SUPERJUMP_FORCE;    
+        }
 
         if(GameManager.sharedInstance.currentGameState == GameState.inGame){
             
