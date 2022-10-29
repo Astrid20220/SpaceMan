@@ -70,6 +70,7 @@ public class Collectable : MonoBehaviour{
 
     }
     if(collision.tag == "Player"){
+        Collect();
 
     }
     
