@@ -23,6 +23,8 @@ public class NewBehaviourScript : MonoBehaviour
     public const int SUPERJUMP_COST = 5;
     public const float SUPERJUMP_FORCE =1.5f;
 
+    public float jumpRaycastDistance = 1.5f;
+
     public LayerMask groundMask
 
     void Awake(){
