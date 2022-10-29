@@ -108,6 +108,11 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     public void Die(){
+        float travelledDistance = GetTravelledDistance();
+        float previousMaxDistance = PlayerPrefs.GetFloat("maxcore", 0f);
+        if(travelledDistance > previousMaxDistance){
+            PlayerPrefs.SetFloat("maxscore", travelledDistance);
+        }
         this.animator.SetBoll(STATE_ALIVE, false);
         GameManager.sharedInstance.GameOver();
 
@@ -130,5 +135,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     public int GetMana(){
         return manaPoints;
+    }
+
+    public float GetTravelledDistance(){
+        return this.transform.position.x - startPosition.x;
     }
 }
