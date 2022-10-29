@@ -17,12 +17,18 @@ public class Collectable : MonoBehaviour{
 
     public int value = 1;
 
+    GameObject player;
+
     private void Awake(){
         sprite = GetComponent <CircleCollider2D>();
         itemCollider = GetComponent<CircleCollider2D>();
     }
 }
+     
 {
+    private void Start(){
+        player = GameObject.Find("Player");
+    }
     void Show(){
         sprite.enabled = true;
         itemCollider.enabled = true;
@@ -46,9 +52,14 @@ public class Collectable : MonoBehaviour{
             break;
 
             case CollectableType.healthPotion:
+            GameObject player = GameObject.Find("Player");
+            player.GetComponent<PlayerController>().CollectHealth(this.value);
             break;
 
             case CollectableType.manaPotion:
+            GameObject player = GameObject.Find("Player");
+            player.GetComponent<PlayerController>().CollectMana(this.value);
+
             break;
 
         }
